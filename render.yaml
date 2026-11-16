@@ -9,7 +9,7 @@ services:
     name: conversor-url
     runtime: docker
     plan: free
-    region: oregon
+    region: virginia
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:
