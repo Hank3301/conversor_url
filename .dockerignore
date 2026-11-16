@@ -1,0 +1,15 @@
+.git
+.gitignore
+.gitattributes
+.venv
+venv
+__pycache__
+*.pyc
+docs
+scripts
+*.mp4
+*.mp3
+*.log
+.env
+cookies*.txt
+README.md

@@ -1,6 +1,9 @@
 # Blueprint do Render (plano free, sem cartão).
-# Passos: crie o repositório no GitHub, suba este arquivo, e no Render
-# use "New > Blueprint" apontando para o repositório.
+#
+# Como publicar: https://dashboard.render.com > New > Blueprint > escolha o
+# repositório Hank3301/conversor_url > Apply. Nenhum campo para preencher.
+#
+# Segredos (COOKIES_B64) entram depois, em Environment, no painel do serviço.
 services:
   - type: web
     name: conversor-url
@@ -10,6 +13,7 @@ services:
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:
+      # Limites calibrados para 512 MB de RAM e menos de 1 CPU.
       - key: MAX_DURATION_MINUTES
         value: "20"
       - key: MAX_FILESIZE_MB
@@ -18,8 +22,9 @@ services:
         value: "1"
       - key: MAX_HEIGHT
         value: "1080"
-      # Preencha no painel do Render (não comite valores).
-      - key: COOKIES_B64
-        sync: false
-      - key: FRONTEND_ORIGIN
-        sync: false
+      - key: RESOLVE_PER_MINUTE
+        value: "10"
+      - key: DOWNLOADS_PER_10MIN
+        value: "3"
+      - key: JOB_TTL_MINUTES
+        value: "15"

@@ -36,15 +36,18 @@ Detalhes do Render free que importam:
 
 ## Passo a passo do deploy (Render)
 
-1. `git init`, comite o projeto e crie um repositório **privado** no GitHub.
-2. Em <https://dashboard.render.com>, `New > Blueprint`, aponte para o repo. O
-   Render lê o `render.yaml` e monta o serviço.
-3. (Opcional, recomendado para YouTube/Instagram) gere o secret:
-   `python scripts/cookies_b64.py cookies.txt` e cole em `COOKIES_B64`.
-   Exporte os cookies de uma **conta descartável**, não da sua principal.
-4. Aguarde o build (~4 min: ffmpeg + deno). Teste `/api/health` → `{"ok":true}`.
-5. Teste um link do TikTok. Depois um do YouTube. Se o YouTube falhar, é o
-   IP de datacenter — veja "Quando o YouTube quebrar".
+1. O repositório já existe e está no ar: <https://github.com/Hank3301/conversor_url>.
+2. Em <https://dashboard.render.com>, `New > Blueprint`, escolha o repositório.
+   O Render lê o `render.yaml` e monta o serviço sozinho — **nenhum campo para
+   preencher**.
+3. `Apply` e aguarde o build (~4 min: ffmpeg + deno).
+4. Quando o status virar **Live**, abra `https://SEU-SERVICO.onrender.com/api/health`
+   → deve responder `{"ok":true}`.
+5. Abra a página, teste um link do TikTok. Depois um do YouTube.
+6. (Opcional, recomendado para YouTube/Instagram) gere o secret:
+   `python scripts/cookies_b64.py cookies.txt` e cole em `Environment >
+   COOKIES_B64` no painel do serviço. Exporte os cookies de uma **conta
+   descartável**, não da sua principal. Salvar a variável já reinicia o serviço.
 
 ## Frontend separado (opcional)
 
