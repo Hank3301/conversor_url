@@ -69,6 +69,20 @@ Tudo é ajustável por variável de ambiente — veja [.env.example](.env.exampl
 - **Sem login.** O site é aberto, com rate limit por IP. Se virar público, ver
   [riscos](docs/04-RISCOS-E-LEGAL.md).
 
+## Fluxo de trabalho
+
+Repositório: <https://github.com/Hank3301/conversor_url> (branch `main`, já
+configurada como upstream). Ao fim de cada etapa:
+
+```powershell
+git add -A
+git commit -m "tipo: o que mudou"
+git push
+```
+
+Tipos de commit: `feat` (recurso), `fix` (correção), `docs` (documentação),
+`chore` (manutenção). Um commit por etapa — nada de acumular.
+
 ## Deploy
 
 Guia completo, com alternativas e o que cada host gratuito realmente entrega:
