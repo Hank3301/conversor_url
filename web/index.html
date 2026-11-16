@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Conversor de Links</title>
+<meta name="description" content="Baixe vídeos e áudios de TikTok, YouTube, Instagram e mais." />
+<meta name="theme-color" content="#0b0f19" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<main class="wrap">
+  <header class="hero">
+    <span class="badge">beta · feito para os amigos</span>
+    <h1>Cole o link. Escolha o formato.<br /><em>Pronto.</em></h1>
+    <p class="sub">
+      TikTok, YouTube, Instagram, Facebook, X e SoundCloud. Vídeo em MP4 ou áudio em MP3,
+      direto no navegador, sem instalar nada.
+    </p>
+  </header>
+
+  <form class="search" id="form" autocomplete="off">
+    <input
+      id="url"
+      name="url"
+      type="url"
+      inputmode="url"
+      placeholder="https://..."
+      aria-label="Link do vídeo"
+      required
+    />
+    <button id="analyze" type="submit">Analisar</button>
+  </form>
+
+  <p class="hint" id="hint">Dica: no celular, use “Compartilhar → Copiar link”.</p>
+
+  <section id="result" class="card" hidden>
+    <div class="media">
+      <img id="thumb" alt="" loading="lazy" hidden />
+      <div class="meta">
+        <h2 id="title"></h2>
+        <p id="byline" class="byline"></p>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3>Vídeo (MP4)</h3>
+      <div class="chips" id="video-chips"></div>
+    </div>
+
+    <div class="group">
+      <h3>Áudio (MP3)</h3>
+      <div class="chips" id="audio-chips"></div>
+    </div>
+
+    <p class="limits" id="limits"></p>
+  </section>
+
+  <section id="progress" class="card progress-card" hidden>
+    <div class="progress-head">
+      <strong id="p-title">Preparando…</strong>
+      <button id="cancel" class="ghost" type="button">Cancelar</button>
+    </div>
+    <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+    <p class="status" id="p-status">Conectando ao servidor…</p>
+    <a id="save" class="save" hidden>Baixar arquivo</a>
+  </section>
+
+  <footer>
+    <p>
+      Uso pessoal e educacional. Os vídeos e músicas pertencem aos seus autores.
+      Nada fica armazenado: tudo é baixado na hora e apagado em seguida.
+    </p>
+    <p class="limits">
+      Limites para manter o serviço gratuito: vídeos de até
+      <span id="max-min">45</span> min e <span id="max-mb">2048</span> MB.
+    </p>
+  </footer>
+</main>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<!-- Deploy separado (frontend na Cloudflare Pages): troque "" pela URL da API. -->
+<script>window.__API_BASE__ = window.__API_BASE__ || "";</script>
+<script src="app.js"></script>
+</body>
+</html>

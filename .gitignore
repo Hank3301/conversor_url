@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Ambiente
+.env
+.env.local
+
+# Segredos / cookies do yt-dlp
+cookies.txt
+cookies*.txt
+
+# Arquivos gerados
+downloads/
+*.part
+*.ytdl
+*.log
+*.mp4
+*.mp3
+*.m4a
+*.webm
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
